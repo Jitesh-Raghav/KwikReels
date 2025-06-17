@@ -7,14 +7,24 @@ import {getStorage} from 'firebase/storage'
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+//   authDomain: "ai-short-video-generator-a2d6e.firebaseapp.com",
+//   projectId: "ai-short-video-generator-a2d6e",
+//   storageBucket: "ai-short-video-generator-a2d6e.firebasestorage.app",
+//   messagingSenderId: "669625698867",
+//   appId: "1:669625698867:web:bfd018b03d685907857146",
+//   measurementId: "G-EG3DKB3BMZ"
+// };
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "ai-short-video-generator-a2d6e.firebaseapp.com",
-  projectId: "ai-short-video-generator-a2d6e",
-  storageBucket: "ai-short-video-generator-a2d6e.firebasestorage.app",
-  messagingSenderId: "669625698867",
-  appId: "1:669625698867:web:bfd018b03d685907857146",
-  measurementId: "G-EG3DKB3BMZ"
+  authDomain: "kwikreels.firebaseapp.com",
+  projectId: "kwikreels",
+  storageBucket: "kwikreels.firebasestorage.app",
+  messagingSenderId: "865726475887",
+  appId: "1:865726475887:web:cf896956655b6c0cef279a",
+  measurementId: "G-QZDBJFNYP0"
 };
 
 // Initialize Firebase
