@@ -41,6 +41,7 @@ function Topic({onHandleInputChange}) {
         const result = await axios.post('/api/generate-script',{
             topic: selectedTopic
         });
+        console.log("topicccc is: ", selectedTopic)
         console.log(result.data);
         setScripts(result.data?.scripts);
     }
@@ -76,7 +77,9 @@ function Topic({onHandleInputChange}) {
             <div>
                 <h2>Enter your own topic</h2>
                 <Textarea placeholder="Enter your topic"
-                onChange={(event)=>onHandleInputChange('topic',event.target.value)}
+                onChange={(event)=>{onHandleInputChange('topic',event.target.value);
+                  setSelectedTopic(event.target.value);
+                }}
                 />
             </div>
           </TabsContent>
