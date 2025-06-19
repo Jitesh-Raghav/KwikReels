@@ -6,10 +6,10 @@ import { api } from "@/convex/_generated/api";
 import { ConvexHttpClient } from "convex/browser";
 import {getServices, renderMediaOnCloudrun} from '@remotion/cloudrun/client';
 
-const ImagePromptScript = `Generate Image prompt of {style} style with all details for each scene for 30 seconds video : script: {script}
+const ImagePromptScript = `Generate Image prompt of {style} style with all details for each scene for 60 seconds video : script: {script}
 -Just Give specifing image prompt depends on the story line
 - do not give camera angle image prompt
--Follow the Following schema and return JSON data (Max 4-5 Images)
+-Follow the Following schema and return JSON data (Max 6-7 Images)
 - [
     {   imagePrompt:'',       
         sceneContent: ' <Script Content>'

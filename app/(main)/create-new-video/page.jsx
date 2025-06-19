@@ -35,6 +35,7 @@ function CreateNewVideo() {
 
     if(!formData?.topic||!formData?.script||!formData.videoStyle||!formData?.caption||!formData?.voice){
         console.log("ERROR", "Enter ALL Field");
+        alert("Enter all the required fields")
         return;
     }
     setLoading(true)
