@@ -5,7 +5,7 @@ import Hero from "./_components/Hero";
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Spline 3D model as background */}
+      {/* Spline 3D model as background
       <div className="absolute inset-0 z-0">
         <Spline 
           scene="https://prod.spline.design/L-9ftzufk-Z9FqHc/scene.splinecode"
@@ -17,7 +17,7 @@ export default function Home() {
           // "https://prod.spline.design/iXAEsY5xjb72zmvq/scene.splinecode"
           className="w-full h-full"
         />
-      </div>
+      </div> */}
       
       {/* Content overlay with pointer-events-none to allow clicking through to the background */}
       <div className="absolute inset-0 z-10 md:px-16 lg:px-24 xl:px-36 pointer-events-none">

@@ -37,7 +37,7 @@ function Billing() {
   };
 
   return (
-    <div>
+    <div className="">
       <h2 className="font-bold text-3xl">Credits</h2>
 
       <div className="p-4 border rounded-xl flex justify-between mt-7 max-w-2xl">
