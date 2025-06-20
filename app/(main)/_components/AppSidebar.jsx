@@ -49,7 +49,7 @@ function AppSidebar() {
     <Sidebar>
     <SidebarHeader>
         <div>
-        <Link href={'https://ai-youtube-short-video-gen-jgaj.vercel.app/'}>
+        <Link href={'https://kwik-reels.vercel.app/dashboard'}>
         <div className='flex items-center gap-3 w-full justify-center mt-5'>
         
             <Image src={'/logo.svg'} alt='logo' width={40} height={40}/>

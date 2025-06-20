@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className='p-4 flex items-center justify-between pointer-events-none'>
       
-      <Link href={'https://ai-youtube-short-video-gen-jgaj.vercel.app/'}>
+      <Link href={'https://kwik-reels.vercel.app/dashboard'}>
       <div className='flex items-center gap-3 pointer-events-auto'>
       
         <Image src={'/logo.svg'} alt='logo' width={40} height={40} />
