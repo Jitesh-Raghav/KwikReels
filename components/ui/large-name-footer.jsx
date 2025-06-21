@@ -117,20 +117,22 @@ function Footer() {
               <h3 className="font-semibold mb-4 text-purple-500 dark:text-purple-400">Connect</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="https://github.com/jiteshcodes" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
+                  <Link href="https://github.com/Jitesh-Raghav" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
                     <Icons.gitHub className="w-4 h-4" />
                     GitHub
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="https://www.linkedin.com/in/jiteshcodes" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
                     <Icons.linkedin className="w-4 h-4" />
                     LinkedIn
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="https://x.com/okayjitesh" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
-                    <Icons.twitter className="w-4 h-4" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                      <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-6.768M20 4l-6.768 6.768" />
+                    </svg>
                     X (Twitter)
                   </Link>
                 </li>

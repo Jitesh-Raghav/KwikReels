@@ -77,7 +77,7 @@ function Hero() {
         className="min-h-screen pt-20"
       >
         <div className="flex gap-4 flex-col sm:flex-row items-center">
-          <Link href="/explore">
+         
             <Button 
               size="lg" 
               variant="outline" 
@@ -85,7 +85,7 @@ function Hero() {
             >
               Explore
             </Button>
-          </Link>
+          
           <Authentication>
             <ButtonCta label="Get Started" />
           </Authentication>

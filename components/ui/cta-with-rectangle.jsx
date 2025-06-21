@@ -29,7 +29,7 @@ export function CTASection({
           )}
 
           {/* Title */}
-          <h2 className="text-3xl font-semibold sm:text-5xl opacity-0 animate-fade-in-up delay-200 bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-purple-200 bg-clip-text text-transparent px-4">
+          <h2 className="text-3xl font-semibold sm:text-5xl opacity-0 animate-fade-in-up delay-200 bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-purple-200 bg-clip-text text-transparent px-4 py-1">
             {title}
           </h2>
 
