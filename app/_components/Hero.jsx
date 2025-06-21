@@ -64,8 +64,8 @@ function Hero() {
         }}
         description="🤖 AI generates scripts, images, and voiceovers in seconds. ⚡Create, edit, and publish engaging shorts with ease!"
         bottomImage={{
-          light: "/kwikreels.png",
-          dark: "/kwikreels.png"
+          light: "/kwikreels.PNG",
+          dark: "/kwikreels.PNG"
         }}
         gridOptions={{
           angle: 65,
