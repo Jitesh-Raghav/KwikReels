@@ -134,7 +134,7 @@ function Header1() {
                 <div className="flex lg:justify-center">
                     <Link href="/" className="flex items-center gap-3">
                         <Image src={'/logo.svg'} alt='GenVid logo' width={40} height={40} />
-                        <h2 className='text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200 bg-clip-text text-transparent'>GenVid</h2>
+                        <h2 className='text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200 bg-clip-text text-transparent'>KwikReels</h2>
                     </Link>
                 </div>
                 

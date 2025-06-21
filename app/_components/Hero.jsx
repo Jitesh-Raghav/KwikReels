@@ -60,12 +60,12 @@ function Hero() {
         title="🤖 AI Video Generator"
         subtitle={{
           regular: "Create stunning ",
-          gradient: "YouTube Shorts with AI"
+          gradient: "Short Videos with KwikReels"
         }}
         description="🤖 AI generates scripts, images, and voiceovers in seconds. ⚡Create, edit, and publish engaging shorts with ease!"
         bottomImage={{
-          light: "/dashboard.png",
-          dark: "/dashboard.png"
+          light: "/kwikreels.png",
+          dark: "/kwikreels.png"
         }}
         gridOptions={{
           angle: 65,

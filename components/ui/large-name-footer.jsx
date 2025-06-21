@@ -129,7 +129,7 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://x.com/jiteshcodes" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
+                  <Link href="https://x.com/okayjitesh" className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 flex items-center gap-2">
                     <Icons.twitter className="w-4 h-4" />
                     X (Twitter)
                   </Link>
