@@ -25,7 +25,7 @@ const MenuItems=[
         icon: HomeIcon
     },
     {
-        title:'Create New Video',
+        title:'Create Video',
         url:'/create-new-video',
         icon: LucideFileVideo
     },
