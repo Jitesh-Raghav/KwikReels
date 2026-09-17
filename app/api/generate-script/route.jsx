@@ -14,11 +14,28 @@ content:''
 }`
 
 export async function POST(req) {
-    const {topic} = await req.json();
+    try {
+        const {topic} = await req.json();
 
-    const PROMPT = SCRIPT_PROMPT.replace('{topic}', topic);
-    const result = await generateScript.sendMessage(PROMPT);
-    const resp = result?.response?.text();
+        if (!topic?.trim()) {
+            return NextResponse.json({error: "A topic is required."}, {status: 400});
+        }
 
-    return NextResponse.json(JSON.parse(resp));
+        const PROMPT = SCRIPT_PROMPT.replace('{topic}', topic.trim());
+        const result = await generateScript.sendMessage(PROMPT);
+        const resp = result?.response?.text()?.trim();
+        const jsonText = resp?.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+
+        if (!jsonText) {
+            throw new Error('Gemini returned an empty response.');
+        }
+
+        return NextResponse.json(JSON.parse(jsonText));
+    } catch (error) {
+        console.error('Script generation failed:', error);
+        return NextResponse.json(
+            {error: 'Unable to generate a script. Check the Gemini API configuration and try again.'},
+            {status: 500}
+        );
+    }
 }
