@@ -3,6 +3,7 @@ const {
     HarmCategory,
     HarmBlockThreshold,
   } = require("@google/generative-ai");
+  const { GoogleGenAI } = require("@google/genai");
   
   const apiKey = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(apiKey);
@@ -20,7 +21,21 @@ const {
   };
   
 
-export  const generateScript = model.startChat({
+export const generateScript = async (prompt) => {
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.8-flash",
+    input: prompt,
+  });
+
+  return interaction.output_text;
+};
+
+const legacyGenerateScript = model.startChat({
       generationConfig,
       history: [
         {

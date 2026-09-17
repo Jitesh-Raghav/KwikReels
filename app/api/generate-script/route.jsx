@@ -22,8 +22,7 @@ export async function POST(req) {
         }
 
         const PROMPT = SCRIPT_PROMPT.replace('{topic}', topic.trim());
-        const result = await generateScript.sendMessage(PROMPT);
-        const resp = result?.response?.text()?.trim();
+        const resp = (await generateScript(PROMPT))?.trim();
         const jsonText = resp?.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
 
         if (!jsonText) {
