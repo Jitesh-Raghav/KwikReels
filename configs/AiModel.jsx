@@ -9,7 +9,7 @@ const {
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash",
+    model: "gemini-3.6-flash",
   });
   
   const generationConfig = {
@@ -28,7 +28,7 @@ export const generateScript = async (prompt) => {
 
   const ai = new GoogleGenAI({ apiKey });
   const interaction = await ai.interactions.create({
-    model: "gemini-3.8-flash",
+    model: "gemini-3.6-flash",
     input: prompt,
   });
 
@@ -73,6 +73,21 @@ const legacyGenerateScript = model.startChat({
 
 
 
+export const generateImagePrompts = async (prompt) => {
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.6-flash",
+    input: prompt,
+  });
+
+  return interaction.output_text;
+};
+
+/*
 export const GenerateImageScript = model.startChat({
   generationConfig,
   history: [
@@ -139,6 +154,7 @@ Follow the following schema and return JSON data (6-7 Images)
     },
   ],
 });
+*/
 
 
     // const result = await chatSession.sendMessage("INSERT_INPUT_HERE");

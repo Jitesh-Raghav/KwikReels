@@ -1,7 +1,7 @@
 import { createClient } from "@deepgram/sdk";
 import { inngest } from "./client";
 import axios from "axios";
-import { GenerateImageScript } from "@/configs/AiModel";
+import { generateImagePrompts } from "@/configs/AiModel";
 import { api } from "@/convex/_generated/api";
 import { ConvexHttpClient } from "convex/browser";
 import {getServices, renderMediaOnCloudrun} from '@remotion/cloudrun/client';
@@ -79,8 +79,11 @@ export const GenerateVideoData = inngest.createFunction(
       async () => {
         const FINAL_PROMPT = ImagePromptScript
         .replace('{style}',videoStyle).replace('{script}',script);
-        const result  = await GenerateImageScript.sendMessage(FINAL_PROMPT);
-        const resp = JSON.parse( result.response.text());
+        const result = await generateImagePrompts(FINAL_PROMPT);
+        const jsonText = result?.trim()
+          .replace(/^```(?:json)?\s*/i, '')
+          .replace(/\s*```$/, '');
+        const resp = JSON.parse(jsonText);
 
         return resp;
     }
