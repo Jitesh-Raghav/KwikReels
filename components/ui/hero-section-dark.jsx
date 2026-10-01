@@ -61,33 +61,33 @@ const HeroSection = React.forwardRef(
         <PixelRibbonsBackground className="z-0" />
         <section className="relative max-w-full mx-auto z-[1]">
           <div className="max-w-screen-xl z-10 mx-auto px-4 py-28 gap-12 md:px-8">
-            <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-white/30 bg-gradient-to-br from-rose-400/45 via-pink-500/40 to-orange-400/35 px-6 py-12 text-center shadow-[0_30px_80px_-20px_rgba(236,72,153,0.45)] backdrop-blur-2xl md:px-14 md:py-16 before:pointer-events-none before:absolute before:inset-0 before:rounded-[2rem] before:bg-gradient-to-b before:from-white/25 before:to-transparent before:to-40%">
+            <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-white/70 bg-white/[0.72] px-6 py-12 text-center shadow-[0_30px_80px_-30px_rgba(40,10,60,0.35)] backdrop-blur-2xl md:px-14 md:py-16 before:pointer-events-none before:absolute before:inset-0 before:rounded-[2rem] before:bg-gradient-to-b before:from-white/25 before:to-transparent before:to-40%">
               <svg
                 aria-hidden="true"
                 viewBox="0 0 100 100"
-                className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-auto -translate-x-1/2 -translate-y-1/2 text-white opacity-15"
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-auto -translate-x-1/2 -translate-y-1/2 text-brand opacity-[0.08]"
               >
                 <path
                   fill="currentColor"
                   d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
                 />
               </svg>
-              <div className="relative space-y-6 [text-shadow:0_1px_12px_rgba(120,20,60,0.25)]">
-                <h1 className="group mx-auto flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-1.5 font-geist-mono text-[11px] uppercase tracking-[0.2em] text-white/90">
-                  <span className="size-1.5 rounded-[1px] bg-white" />
+              <div className="relative space-y-6">
+                <h1 className="group mx-auto flex w-fit items-center gap-2 rounded-full border border-black/10 bg-black/[0.04] px-4 py-1.5 font-geist-mono text-[11px] uppercase tracking-[0.2em] text-foreground/70">
+                  <span className="size-1.5 rounded-[1px] bg-brand" />
                   {title}
                   <ChevronRight className="h-3.5 w-3.5 duration-300 group-hover:translate-x-1" />
                 </h1>
-                <h2 className="mx-auto font-pixel text-[2.6rem] leading-[1.05] tracking-tight text-white md:text-7xl md:leading-[1.02]">
+                <h2 className="mx-auto font-pixel text-[2.6rem] leading-[1.05] tracking-tight md:text-7xl md:leading-[1.02] text-foreground">
                   {subtitle.regular}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-100">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4338CA] via-[#BE185D] to-[#C2410C]">
                     {subtitle.gradient}
                   </span>
                 </h2>
-                <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/85 md:text-base">
+                <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-foreground/[0.72] md:text-base">
                   {description}
                 </p>
-                <div className="items-center justify-center gap-x-3 space-y-3 pt-2 sm:flex sm:space-y-0 [text-shadow:none]">
+                <div className="items-center justify-center gap-x-3 space-y-3 pt-2 sm:flex sm:space-y-0">
                   {/* Render custom children if provided, otherwise use default button */}
                   {children || (
                     <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
