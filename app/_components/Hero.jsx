@@ -77,7 +77,7 @@ function Hero() {
             <Button
               size="lg"
               variant="secondary"
-              className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto bg-white/85 text-foreground hover:bg-white"
+              className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto bg-secondary text-foreground shadow-none hover:bg-secondary/70"
             >
               Explore
             </Button>
