@@ -1,12 +1,13 @@
 import { BentoGrid } from '@/components/ui/bento-grid'
-import { Wand2, Mic, Palette, Clock, Sparkles, Video } from 'lucide-react'
+import { Wand2, Mic, Palette, Clock } from 'lucide-react'
+import { SectionHeading } from '@/components/ui/section-heading'
 
 export function Features() {
   const features = [
     {
       title: "AI Story Generation",
       description: "Generate engaging stories from any topic or custom prompt using advanced AI",
-      icon: <Wand2 className="w-6 h-6 text-purple-600 dark:text-purple-400" strokeWidth={1.5} />,
+      icon: <Wand2 className="w-5 h-5 text-foreground" strokeWidth={1.75} />,
       status: "Active",
       tags: ["AI", "Stories", "Automation"],
       cta: "Try Now →",
@@ -16,7 +17,7 @@ export function Features() {
     {
       title: "AI Voice Models",
       description: "Choose from multiple AI voice models for perfect narration",
-      icon: <Mic className="w-6 h-6 text-purple-600 dark:text-purple-400" strokeWidth={1.5} />,
+      icon: <Mic className="w-5 h-5 text-foreground" strokeWidth={1.75} />,
       status: "Live",
       tags: ["Voice", "AI"],
       cta: "Explore →"
@@ -24,7 +25,7 @@ export function Features() {
     {
       title: "Video Styles",
       description: "Select from various visual styles: cinematic, cartoon, realistic, and more",
-      icon: <Palette className="w-6 h-6 text-purple-600 dark:text-purple-400" strokeWidth={1.5} />,
+      icon: <Palette className="w-5 h-5 text-foreground" strokeWidth={1.75} />,
       tags: ["Styles", "Visual"],
       cta: "Browse →",
       colSpan: 2
@@ -32,7 +33,7 @@ export function Features() {
     {
       title: "Custom Duration",
       description: "Set the perfect length for your content - from quick 15-second clips to longer stories",
-      icon: <Clock className="w-6 h-6 text-purple-600 dark:text-purple-400" strokeWidth={1.5} />,
+      icon: <Clock className="w-5 h-5 text-foreground" strokeWidth={1.75} />,
       status: "Updated",
       tags: ["Duration", "Custom"],
       cta: "Configure →"
@@ -40,21 +41,17 @@ export function Features() {
   ]
 
   return (
-    <section className="relative py-16 bg-gradient-to-b from-background to-background/80">
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/10 to-transparent dark:from-purple-950/20" />
-      
+    <section className="relative py-20 md:py-28">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200 bg-clip-text text-transparent mb-4">
-            Powerful AI Features
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Everything you need to create stunning YouTube Shorts with the power of artificial intelligence
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Features"
+          title="Powerful AI Features"
+          description="Everything you need to create stunning YouTube Shorts with the power of artificial intelligence"
+          className="mb-14"
+        />
 
         <BentoGrid items={features} />
       </div>
     </section>
   )
-} 
+}

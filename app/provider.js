@@ -7,9 +7,12 @@ import { AuthContext } from './_context/AuthContext'
 import { useMutation } from "convex/react";
 import { api } from '@/convex/_generated/api'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import { usePathname } from 'next/navigation'
 function Provider({children}) {
 
   const[user,setUser] = useState();
+  // The landing page is designed light-only; every other page keeps the user's theme
+  const pathname = usePathname();
   const CreateUser = useMutation(api.users.CreateNewUser);
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, async(user)=>{
@@ -39,6 +42,7 @@ function Provider({children}) {
          attribute="class"
          defaultTheme="dark"
          enableSystem
+         forcedTheme={pathname === '/' ? 'light' : undefined}
          disableTransitionOnChange
          >
             {children}

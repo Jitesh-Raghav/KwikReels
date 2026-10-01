@@ -39,7 +39,7 @@ import Hero from "./_components/Hero";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-hidden">
+    <div className="landing min-h-screen w-full overflow-hidden font-geist antialiased">
       {/* Header with horizontal padding */}
       <div className="px-6 md:px-16 lg:px-24 xl:px-36">
         <Header />

@@ -25,7 +25,7 @@
 // }
 
 
-import { Outfit, Orbitron } from "next/font/google";
+import { Outfit, Geist, Geist_Mono, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "./ConvexClientProvider";
 
@@ -56,11 +56,17 @@ export const metadata = {
 };
 
 const outfit = Outfit({ subsets: ["latin"] });
+// Landing page fonts, exposed as CSS variables (see tailwind fontFamily)
+const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
+const pixelify = Pixelify_Sans({ subsets: ["latin"], variable: "--font-pixel" });
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={outfit.className}>
+      <body
+        className={`${outfit.className} ${geistSans.variable} ${geistMono.variable} ${pixelify.variable}`}
+      >
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>

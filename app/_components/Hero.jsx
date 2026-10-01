@@ -57,38 +57,31 @@ function Hero() {
   return (
     <div>
       <HeroSection
-        title="🤖 AI Video Generator"
+        title="AI Video Generator"
         subtitle={{
           regular: "Create stunning ",
           gradient: "Short Videos with KwikReels"
         }}
-        description="🤖 AI generates scripts, images, and voiceovers in seconds. ⚡Create, edit, and publish engaging shorts with ease!"
+        description="AI generates scripts, images, and voiceovers in seconds. Create, edit, and publish engaging shorts with ease!"
         bottomImage={{
           light: "/kwikreels.PNG",
           dark: "/kwikreels.PNG"
         }}
-        gridOptions={{
-          angle: 65,
-          opacity: 0.3,
-          cellSize: 50,
-          lightLineColor: "#4a4a4a",
-          darkLineColor: "#2a2a2a",
-        }}
         className="min-h-screen pt-20"
       >
-        <div className="flex gap-4 flex-col sm:flex-row items-center">
-         
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="w-full sm:w-auto h-12 px-6 border-purple-500/30 bg-gradient-to-r from-purple-600/10 to-pink-500/10 hover:from-purple-600/20 hover:to-pink-500/20 text-purple-300 hover:text-purple-200 backdrop-blur-sm"
+        <div className="flex gap-3 flex-col sm:flex-row items-center">
+          <Authentication>
+            <ButtonCta label="Start creating for free" />
+          </Authentication>
+          <Link href="/explore" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto bg-white/85 text-foreground hover:bg-white"
             >
               Explore
             </Button>
-          
-          <Authentication>
-            <ButtonCta label="Get Started" />
-          </Authentication>
+          </Link>
         </div>
       </HeroSection>
       
@@ -110,7 +103,6 @@ function Hero() {
           href: "/explore",
           variant: "default"
         }}
-        withGlow={true}
         className="py-16"
       />
       <Footer />
