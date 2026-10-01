@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			geist: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			'geist-mono': ['var(--font-geist-mono)', 'ui-monospace', 'monospace'],
+  			pixel: ['var(--font-pixel)', 'var(--font-geist-mono)', 'monospace'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

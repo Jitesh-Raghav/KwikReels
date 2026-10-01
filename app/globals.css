@@ -217,3 +217,37 @@ body {
     animation-timing-function: ease-out;
   }
 }
+
+/* Light theme for the landing page only (the dashboard keeps the default tokens) */
+.landing {
+  --background: 240 9% 97%;
+  --foreground: 240 6% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 6% 4%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 6% 4%;
+  --primary: 240 6% 4%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 6% 93%;
+  --secondary-foreground: 240 6% 4%;
+  --muted: 240 6% 93%;
+  --muted-foreground: 240 4% 42%;
+  --accent: 240 6% 93%;
+  --accent-foreground: 240 6% 4%;
+  --border: 240 6% 89%;
+  --input: 240 6% 86%;
+  --ring: 240 6% 4%;
+  /* hot pink and orange from the hero ribbons */
+  --brand: 338 100% 59%;
+  --brand-foreground: 20 100% 62%;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@layer utilities {
+  /* faint square dot grid, echoing the pixel ribbons */
+  .pixel-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.12) 1px, transparent 1.2px);
+    background-size: 10px 10px;
+  }
+}

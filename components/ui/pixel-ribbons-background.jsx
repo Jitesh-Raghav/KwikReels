@@ -95,7 +95,7 @@ function makeDotPattern(ctx, cell, ratio, color) {
   return ctx.createPattern(tile, "repeat")
 }
 
-function PixelRibbonsBackground({ className, cellSize = 7 }) {
+function PixelRibbonsBackground({ className, cellSize = 7, fade = true }) {
   const containerRef = React.useRef(null)
   const canvasRef = React.useRef(null)
 
@@ -260,7 +260,9 @@ function PixelRibbonsBackground({ className, cellSize = 7 }) {
       style={{ backgroundColor: BASE_COLOR }}
     >
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-background" />
+      {fade && (
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-background" />
+      )}
     </div>
   )
 }

@@ -4,19 +4,38 @@ import { Button } from "@/components/ui/button"
 import { ButtonCta } from "@/components/ui/button-shiny"
 import { Card } from "@/components/ui/card"
 
-const Benefit = ({ text, checked }) => {
+const Benefit = ({ text, checked, inverted }) => {
   return (
     <div className="flex items-center gap-3">
       {checked ? (
-        <span className="grid size-4 place-content-center rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-sm text-white">
-          <Check className="size-3" />
+        <span
+          className={cn(
+            "grid size-5 place-content-center rounded-full",
+            inverted ? "bg-white text-black" : "bg-foreground text-background"
+          )}
+        >
+          <Check className="size-3" strokeWidth={3} />
         </span>
       ) : (
-        <span className="grid size-4 place-content-center rounded-full dark:bg-zinc-800 bg-zinc-200 text-sm dark:text-zinc-400 text-zinc-600">
-          <X className="size-3" />
+        <span
+          className={cn(
+            "grid size-5 place-content-center rounded-full",
+            inverted ? "bg-white/10 text-white/40" : "bg-secondary text-muted-foreground"
+          )}
+        >
+          <X className="size-3" strokeWidth={3} />
         </span>
       )}
-      <span className="text-sm dark:text-zinc-300 text-zinc-600">{text}</span>
+      <span
+        className={cn(
+          "text-sm",
+          inverted
+            ? checked ? "text-white/90" : "text-white/40"
+            : checked ? "text-foreground" : "text-muted-foreground"
+        )}
+      >
+        {text}
+      </span>
     </div>
   )
 }
@@ -32,53 +51,69 @@ export const PricingCard = ({
 }) => {
   return (
     <div className="relative">
-      {isPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <span className="bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            Most Popular
-          </span>
-        </div>
-      )}
       <Card
         className={cn(
-          "relative h-full w-full overflow-hidden border",
-          isPopular 
-            ? "border-purple-500/50 bg-gradient-to-br from-purple-950/30 to-purple-900/50 dark:from-purple-950/50 dark:to-purple-900/80" 
-            : "dark:border-zinc-700 dark:bg-gradient-to-br dark:from-zinc-950/50 dark:to-zinc-900/80 border-zinc-200 bg-gradient-to-br from-zinc-50/50 to-zinc-100/80",
-          "p-6",
+          "relative flex h-full w-full flex-col overflow-hidden rounded-3xl p-7",
+          isPopular
+            ? "border-foreground bg-foreground text-white shadow-[0_40px_100px_-40px_rgba(255,46,126,0.6)]"
+            : "border-border bg-card",
           className,
         )}
       >
-        <div className="flex flex-col items-center border-b pb-6 dark:border-zinc-700 border-zinc-200">
-          <span className={cn(
-            "mb-6 inline-block text-lg font-semibold",
-            isPopular ? "bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent" : "dark:text-zinc-50 text-zinc-900"
-          )}>
+        {isPopular && (
+          <>
+            {/* glow and pixel dots in the hero ribbon colours */}
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[140%] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(255,46,126,0.55),rgba(232,60,240,0.3)_45%,rgba(255,122,61,0)_100%)] blur-2xl" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(rgba(255,255,255,0.25)_1px,transparent_1.2px)] [background-size:10px_10px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+          </>
+        )}
+
+        <div className="relative flex h-7 items-center justify-between">
+          <span
+            className={cn(
+              "font-geist-mono text-xs uppercase tracking-[0.2em]",
+              isPopular ? "text-white/70" : "text-muted-foreground"
+            )}
+          >
             {tier}
           </span>
-          <span className="mb-3 inline-block text-4xl font-bold">
+          {isPopular && (
+            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-black">
+              Most popular
+            </span>
+          )}
+        </div>
+
+        <div
+          className={cn(
+            "relative mt-6 border-b pb-6",
+            isPopular ? "border-white/15" : "border-border"
+          )}
+        >
+          <span className="block font-pixel text-6xl leading-none tracking-tight">
             {price}
           </span>
-          <span className="dark:bg-gradient-to-br dark:from-zinc-200 dark:to-zinc-500 bg-gradient-to-br from-zinc-700 to-zinc-900 bg-clip-text text-center text-transparent">
+          <span className={cn("mt-3 block text-sm", isPopular ? "text-white/70" : "text-muted-foreground")}>
             {bestFor}
           </span>
         </div>
-        <div className="space-y-4 py-9">
+
+        <div className="relative space-y-3.5 py-7">
           {benefits.map((benefit, index) => (
-            <Benefit key={index} {...benefit} />
+            <Benefit key={index} {...benefit} inverted={isPopular} />
           ))}
         </div>
-        {isPopular ? (
-          <ButtonCta label={CTA} className="w-full border border-gray-300" />
-        ) : (
-          <Button
-            variant="outline"
-            className="w-full h-12 border-purple-500/30 border border-gray-300 bg-gradient-to-r from-purple-600/10 to-pink-500/10 hover:from-purple-600/20 hover:to-pink-500/20 text-purple-300 hover:text-purple-200 backdrop-blur-sm"
-          >
-            {CTA}
-          </Button>
-        )}
+
+        <div className="relative mt-auto">
+          {isPopular ? (
+            <ButtonCta label={CTA} className="w-full bg-white text-black hover:bg-white/90" />
+          ) : (
+            <Button variant="secondary" size="lg" className="h-12 w-full rounded-full shadow-none hover:bg-secondary/70">
+              {CTA}
+            </Button>
+          )}
+        </div>
       </Card>
     </div>
   )
-} 
+}

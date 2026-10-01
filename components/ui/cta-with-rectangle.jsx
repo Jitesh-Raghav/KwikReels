@@ -1,7 +1,8 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
+import { ButtonCta } from "@/components/ui/button-shiny"
+import { PixelRibbonsBackground } from "@/components/ui/pixel-ribbons-background"
 import { cn } from "@/lib/utils"
 
 export function CTASection({
@@ -9,53 +10,36 @@ export function CTASection({
   title,
   description,
   action,
-  withGlow = true,
   className,
 }) {
   return (
-    <section className={cn("w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]", className)}>
-      <div className="relative flex flex-col items-center gap-6 py-12 text-center sm:gap-8 md:py-24 bg-gradient-to-b from-background to-background/80 mx-4 sm:mx-8 rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-950/5 to-transparent dark:from-purple-950/8" />
-        
-        <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-8">
-          {/* Badge */}
+    <section className={cn("px-4 md:px-8", className)}>
+      <div className="relative mx-auto flex max-w-screen-xl items-center justify-center overflow-hidden rounded-[2.5rem] px-4 py-20 md:py-28">
+        <PixelRibbonsBackground fade={false} />
+
+        <div className="relative z-10 flex max-w-2xl flex-col items-center gap-6 rounded-[2rem] border border-white/30 bg-gradient-to-br from-rose-400/45 via-pink-500/40 to-orange-400/35 px-6 py-12 text-center shadow-[0_30px_80px_-20px_rgba(236,72,153,0.45)] backdrop-blur-2xl md:px-14">
           {badge && (
-            <Badge
-              variant="outline"
-              className="opacity-0 animate-fade-in-up delay-100 border-purple-500/30 bg-gradient-to-r from-purple-600/10 to-pink-500/10 text-purple-300 backdrop-blur-sm"
-            >
-              <span className="text-purple-300">{badge.text}</span>
-            </Badge>
+            <p className="flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-1.5 font-geist-mono text-[11px] uppercase tracking-[0.2em] text-white/90">
+              <span className="size-1.5 rounded-[1px] bg-white" />
+              {badge.text}
+            </p>
           )}
 
-          {/* Title */}
-          <h2 className="text-3xl font-semibold sm:text-5xl opacity-0 animate-fade-in-up delay-200 bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-purple-200 bg-clip-text text-transparent px-4 py-1">
+          <h2 className="font-pixel text-4xl leading-[1.05] tracking-tight text-white [text-shadow:0_1px_12px_rgba(120,20,60,0.25)] sm:text-6xl">
             {title}
           </h2>
 
-          {/* Description */}
           {description && (
-            <p className="text-gray-600 dark:text-gray-300 opacity-0 animate-fade-in-up delay-300 max-w-2xl px-4">
+            <p className="max-w-xl text-white/85 [text-shadow:0_1px_12px_rgba(120,20,60,0.25)]">
               {description}
             </p>
           )}
 
-          {/* Action Button */}
-          <Button
-            variant={action.variant || "default"}
-            size="lg"
-            className="opacity-0 border-2 text-white border-white animate-fade-in-up delay-500 border-purple-500/30 bg-transparent hover:bg-transparent text-purple-300 hover:text-purple-200 h-12 px-6"
-            asChild
-          >
-            <a href={action.href}>{action.text}</a>
-          </Button>
+          <Link href={action.href}>
+            <ButtonCta label={action.text} />
+          </Link>
         </div>
-
-        {/* Glow Effect */}
-        {withGlow && (
-          <div className="fade-top-lg pointer-events-none absolute inset-0 rounded-2xl bg-purple-900/50 shadow-[0_0_100px_40px_rgba(88,28,135,0.8)] opacity-0 animate-scale-in delay-700" />
-        )}
       </div>
     </section>
   )
-} 
+}

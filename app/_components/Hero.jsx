@@ -57,31 +57,31 @@ function Hero() {
   return (
     <div>
       <HeroSection
-        title="🤖 AI Video Generator"
+        title="AI Video Generator"
         subtitle={{
           regular: "Create stunning ",
           gradient: "Short Videos with KwikReels"
         }}
-        description="🤖 AI generates scripts, images, and voiceovers in seconds. ⚡Create, edit, and publish engaging shorts with ease!"
+        description="AI generates scripts, images, and voiceovers in seconds. Create, edit, and publish engaging shorts with ease!"
         bottomImage={{
           light: "/kwikreels.PNG",
           dark: "/kwikreels.PNG"
         }}
         className="min-h-screen pt-20"
       >
-        <div className="flex gap-4 flex-col sm:flex-row items-center">
-         
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="w-full sm:w-auto h-12 px-6 border-white/40 bg-white/15 hover:bg-white/25 text-white hover:text-white backdrop-blur-sm"
+        <div className="flex gap-3 flex-col sm:flex-row items-center">
+          <Authentication>
+            <ButtonCta label="Start creating for free" />
+          </Authentication>
+          <Link href="/explore" className="w-full sm:w-auto">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="h-12 w-full rounded-full px-7 text-[15px] sm:w-auto bg-white/85 text-foreground hover:bg-white"
             >
               Explore
             </Button>
-          
-          <Authentication>
-            <ButtonCta label="Get Started" />
-          </Authentication>
+          </Link>
         </div>
       </HeroSection>
       
@@ -103,7 +103,6 @@ function Hero() {
           href: "/explore",
           variant: "default"
         }}
-        withGlow={true}
         className="py-16"
       />
       <Footer />

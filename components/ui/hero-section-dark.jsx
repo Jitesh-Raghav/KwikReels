@@ -72,21 +72,22 @@ const HeroSection = React.forwardRef(
                   d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
                 />
               </svg>
-              <div className="relative space-y-5 leading-0 lg:leading-5 [text-shadow:0_1px_12px_rgba(120,20,60,0.25)]">
-                <h1 className="text-sm text-white/90 group font-geist mx-auto px-5 py-2 bg-white/15 border-[1px] border-white/25 rounded-3xl w-fit">
+              <div className="relative space-y-6 [text-shadow:0_1px_12px_rgba(120,20,60,0.25)]">
+                <h1 className="group mx-auto flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-1.5 font-geist-mono text-[11px] uppercase tracking-[0.2em] text-white/90">
+                  <span className="size-1.5 rounded-[1px] bg-white" />
                   {title}
-                  <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
+                  <ChevronRight className="h-3.5 w-3.5 duration-300 group-hover:translate-x-1" />
                 </h1>
-                <h2 className="text-4xl tracking-tighter font-geist text-white mx-auto md:text-6xl">
+                <h2 className="mx-auto font-pixel text-[2.6rem] leading-[1.05] tracking-tight text-white md:text-7xl md:leading-[1.02]">
                   {subtitle.regular}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-100">
                     {subtitle.gradient}
                   </span>
                 </h2>
-                <p className="max-w-2xl mx-auto text-white/85">
+                <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/85 md:text-base">
                   {description}
                 </p>
-                <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+                <div className="items-center justify-center gap-x-3 space-y-3 pt-2 sm:flex sm:space-y-0 [text-shadow:none]">
                   {/* Render custom children if provided, otherwise use default button */}
                   {children || (
                     <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
@@ -108,12 +109,12 @@ const HeroSection = React.forwardRef(
               <div className="mt-32 relative z-10">
                 <img
                   src={bottomImage.light}
-                  className="w-full shadow-lg rounded-lg border border-gray-200 dark:hidden"
+                  className="w-full rounded-3xl border border-white/60 shadow-[0_40px_120px_-40px_rgba(30,10,60,0.55)] dark:hidden"
                   alt="Dashboard preview"
                 />
                 <img
                   src={bottomImage.dark}
-                  className="hidden w-full shadow-lg rounded-lg border border-gray-800 dark:block"
+                  className="hidden w-full rounded-3xl border border-white/60 shadow-[0_40px_120px_-40px_rgba(30,10,60,0.55)] dark:block"
                   alt="Dashboard preview"
                 />
               </div>

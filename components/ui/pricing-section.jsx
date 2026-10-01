@@ -1,21 +1,18 @@
 import { PricingCard } from "@/components/ui/dark-gradient-pricing"
+import { SectionHeading } from "@/components/ui/section-heading"
 
 export function PricingSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-background/80 py-16">
-      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/5 to-transparent dark:from-purple-950/10" />
-      
+    <section className="relative overflow-hidden py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
-        <div className="mb-12 space-y-4 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200 bg-clip-text text-transparent">
-            Choose Your Plan
-          </h2>
-          <p className="text-base text-gray-600 dark:text-gray-300 md:text-lg max-w-2xl mx-auto">
-            Start creating amazing AI-generated YouTube Shorts today. Choose the plan that fits your content creation needs.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+        <SectionHeading
+          eyebrow="Pricing"
+          title="Choose Your Plan"
+          description="Start creating amazing AI-generated YouTube Shorts today. Choose the plan that fits your content creation needs."
+          className="mb-14"
+        />
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 max-w-5xl mx-auto">
           <PricingCard
             tier="Free"
             price="$0"
@@ -70,7 +67,7 @@ export function PricingSection() {
         </div>
         
         <div className="mt-12 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-muted-foreground">
             All plans include access to our AI script generator, voice synthesis, and automatic captions.
           </p>
         </div>

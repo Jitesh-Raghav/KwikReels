@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function BentoGrid({ items, className }) {
@@ -9,93 +10,69 @@ function BentoGrid({ items, className }) {
                 <div
                     key={index}
                     className={cn(
-                        "group relative p-6 rounded-xl overflow-hidden transition-all duration-300",
-                        "border border-purple-100/60 dark:border-purple-500/20 bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm",
-                        "hover:shadow-[0_4px_15px_rgba(147,51,234,0.08)] dark:hover:shadow-[0_4px_15px_rgba(147,51,234,0.15)]",
-                        "hover:-translate-y-1 will-change-transform",
-                        item.colSpan || "col-span-1",
-                        item.colSpan === 2 ? "md:col-span-2" : "",
-                        {
-                            "shadow-[0_4px_15px_rgba(147,51,234,0.08)] -translate-y-1":
-                                item.hasPersistentHover,
-                            "dark:shadow-[0_4px_15px_rgba(147,51,234,0.15)]":
-                                item.hasPersistentHover,
-                        }
+                        "group relative overflow-hidden rounded-3xl border border-border bg-card p-7 transition-all duration-300",
+                        "hover:-translate-y-1 hover:shadow-[0_24px_60px_-30px_rgba(20,10,40,0.35)] will-change-transform",
+                        item.colSpan === 2 ? "md:col-span-2" : "col-span-1",
                     )}
                 >
+                    {/* pixel dot grid that fades in from the corner */}
                     <div
-                        className={`absolute inset-0 ${
-                            item.hasPersistentHover
-                                ? "opacity-100"
-                                : "opacity-0 group-hover:opacity-100"
-                        } transition-opacity duration-300`}
-                    >
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.02)_1px,transparent_1px)] dark:bg-[radial-gradient(circle_at_center,rgba(147,51,234,0.04)_1px,transparent_1px)] bg-[length:8px_8px]" />
-                    </div>
+                        className={cn(
+                            "pixel-grid pointer-events-none absolute inset-0 transition-opacity duration-500 [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_60%)]",
+                            item.hasPersistentHover ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                        )}
+                    />
 
-                    <div className="relative flex flex-col space-y-4">
+                    <div className="relative flex h-full flex-col gap-6">
                         <div className="flex items-center justify-between">
-                            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-purple-100 to-gray-300 dark:from-purple-900/30 dark:to-gray-700/30 group-hover:from-purple-200 group-hover:to-gray-400 dark:group-hover:from-purple-800/40 dark:group-hover:to-gray-600/40 transition-all duration-300">
+                            <div className="grid size-12 place-items-center rounded-2xl bg-secondary transition-colors duration-300 group-hover:bg-foreground group-hover:[&_svg]:text-background">
                                 {item.icon}
                             </div>
                             {item.status && (
-                                <span
-                                    className={cn(
-                                        "text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm",
-                                        "bg-gradient-to-r from-purple-100 to-gray-300 dark:from-purple-900/40 dark:to-gray-700/40",
-                                        "text-purple-700 dark:text-purple-300 border border-purple-200/50 dark:border-purple-500/30",
-                                        "transition-all duration-300 group-hover:from-purple-200 group-hover:to-gray-400 dark:group-hover:from-purple-800/50 dark:group-hover:to-gray-600/50"
-                                    )}
-                                >
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 font-geist-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                                    <span className="size-1.5 rounded-[1px] bg-brand" />
                                     {item.status}
                                 </span>
                             )}
                         </div>
 
-                        <div className="space-y-3">
-                            <h3 className="font-semibold text-gray-900 dark:text-gray-100 tracking-tight text-lg">
+                        <div className="space-y-2">
+                            <h3 className="font-pixel text-2xl leading-tight tracking-tight text-foreground">
                                 {item.title}
                                 {item.meta && (
-                                    <span className="ml-2 text-sm text-purple-600 dark:text-purple-400 font-normal">
+                                    <span className="ml-2 text-sm font-geist text-muted-foreground">
                                         {item.meta}
                                     </span>
                                 )}
                             </h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
                                 {item.description}
                             </p>
                         </div>
 
-                        <div className="flex items-center justify-between mt-4">
-                            <div className="flex items-center space-x-2">
+                        <div className="mt-auto flex items-center justify-between gap-4">
+                            <div className="flex flex-wrap items-center gap-2">
                                 {item.tags?.map((tag, i) => (
                                     <span
                                         key={i}
-                                        className="text-xs px-2 py-1 rounded-md bg-gradient-to-r from-purple-50 to-gray-200 dark:from-purple-900/20 dark:to-gray-800/20 text-purple-700 dark:text-purple-300 border border-purple-100 dark:border-purple-500/20 transition-all duration-200 hover:from-purple-100 hover:to-gray-300 dark:hover:from-purple-800/30 dark:hover:to-gray-700/30"
+                                        className="rounded-full bg-secondary px-2.5 py-1 font-geist-mono text-[11px] text-muted-foreground"
                                     >
                                         #{tag}
                                     </span>
                                 ))}
                             </div>
                             {item.cta && (
-                                <span className="text-xs text-purple-600 dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity font-medium">
-                                    {item.cta}
+                                <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-foreground opacity-0 transition-opacity group-hover:opacity-100">
+                                    {item.cta.replace(/\s*→$/, "")}
+                                    <ArrowUpRight className="size-4" />
                                 </span>
                             )}
                         </div>
                     </div>
-
-                    <div
-                        className={`absolute inset-0 -z-10 rounded-xl p-px bg-gradient-to-br from-purple-200/20 via-gray-300/20 to-purple-200/20 dark:from-purple-500/20 dark:via-gray-600/20 dark:to-purple-500/20 ${
-                            item.hasPersistentHover
-                                ? "opacity-100"
-                                : "opacity-0 group-hover:opacity-100"
-                        } transition-opacity duration-300`}
-                    />
                 </div>
             ))}
         </div>
     );
 }
 
-export { BentoGrid } 
+export { BentoGrid }
