@@ -1,6 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import { ChevronRight } from "lucide-react"
+import { PixelRibbonsBackground } from "@/components/ui/pixel-ribbons-background"
 
 const RetroGrid = ({
   angle = 65,
@@ -56,40 +57,51 @@ const HeroSection = React.forwardRef(
     ref,
   ) => {
     return (
-      <div className={cn("relative", className)} ref={ref} {...props}>
-        <div className="absolute top-0 z-[0] h-screen w-screen bg-purple-950/10 dark:bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-        <section className="relative max-w-full mx-auto z-1">
-          <RetroGrid {...gridOptions} />
+      <div className={cn("relative overflow-hidden", className)} ref={ref} {...props}>
+        <PixelRibbonsBackground className="z-0" />
+        <section className="relative max-w-full mx-auto z-[1]">
           <div className="max-w-screen-xl z-10 mx-auto px-4 py-28 gap-12 md:px-8">
-            <div className="space-y-5 max-w-3xl leading-0 lg:leading-5 mx-auto text-center">
-              <h1 className="text-sm text-gray-600 dark:text-gray-400 group font-geist mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/20 via-gray-400/20 to-transparent dark:from-zinc-300/5 dark:via-gray-400/5 border-[2px] border-black/5 dark:border-white/5 rounded-3xl w-fit">
-                {title}
-                <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
-              </h1>
-              <h2 className="text-4xl tracking-tighter font-geist bg-clip-text text-transparent mx-auto md:text-6xl bg-[linear-gradient(180deg,_#000_0%,_rgba(0,_0,_0,_0.75)_100%)] dark:bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]">
-                {subtitle.regular}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200">
-                  {subtitle.gradient}
-                </span>
-              </h2>
-              <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-                {description}
-              </p>
-              <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-                {/* Render custom children if provided, otherwise use default button */}
-                {children || (
-                  <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                    <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-gray-950 text-xs font-medium backdrop-blur-3xl">
-                      <a
-                        href={ctaHref}
-                        className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-gray-900 dark:text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10"
-                      >
-                        {ctaText}
-                      </a>
-                    </div>
+            <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[2rem] border border-white/30 bg-gradient-to-br from-rose-400/45 via-pink-500/40 to-orange-400/35 px-6 py-12 text-center shadow-[0_30px_80px_-20px_rgba(236,72,153,0.45)] backdrop-blur-2xl md:px-14 md:py-16 before:pointer-events-none before:absolute before:inset-0 before:rounded-[2rem] before:bg-gradient-to-b before:from-white/25 before:to-transparent before:to-40%">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 100 100"
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-auto -translate-x-1/2 -translate-y-1/2 text-white opacity-15"
+              >
+                <path
+                  fill="currentColor"
+                  d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
+                />
+              </svg>
+              <div className="relative space-y-5 leading-0 lg:leading-5 [text-shadow:0_1px_12px_rgba(120,20,60,0.25)]">
+                <h1 className="text-sm text-white/90 group font-geist mx-auto px-5 py-2 bg-white/15 border-[1px] border-white/25 rounded-3xl w-fit">
+                  {title}
+                  <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
+                </h1>
+                <h2 className="text-4xl tracking-tighter font-geist text-white mx-auto md:text-6xl">
+                  {subtitle.regular}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-100">
+                    {subtitle.gradient}
                   </span>
-                )}
+                </h2>
+                <p className="max-w-2xl mx-auto text-white/85">
+                  {description}
+                </p>
+                <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+                  {/* Render custom children if provided, otherwise use default button */}
+                  {children || (
+                    <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
+                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                      <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-gray-950 text-xs font-medium backdrop-blur-3xl">
+                        <a
+                          href={ctaHref}
+                          className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-gray-900 dark:text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10"
+                        >
+                          {ctaText}
+                        </a>
+                      </div>
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
             {bottomImage && (

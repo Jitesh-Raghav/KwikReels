@@ -67,13 +67,6 @@ function Hero() {
           light: "/kwikreels.PNG",
           dark: "/kwikreels.PNG"
         }}
-        gridOptions={{
-          angle: 65,
-          opacity: 0.3,
-          cellSize: 50,
-          lightLineColor: "#4a4a4a",
-          darkLineColor: "#2a2a2a",
-        }}
         className="min-h-screen pt-20"
       >
         <div className="flex gap-4 flex-col sm:flex-row items-center">
@@ -81,7 +74,7 @@ function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="w-full sm:w-auto h-12 px-6 border-purple-500/30 bg-gradient-to-r from-purple-600/10 to-pink-500/10 hover:from-purple-600/20 hover:to-pink-500/20 text-purple-300 hover:text-purple-200 backdrop-blur-sm"
+              className="w-full sm:w-auto h-12 px-6 border-white/40 bg-white/15 hover:bg-white/25 text-white hover:text-white backdrop-blur-sm"
             >
               Explore
             </Button>
