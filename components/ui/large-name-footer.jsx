@@ -141,7 +141,7 @@ function Footer() {
         <div className="mt-16 flex w-full items-end justify-center">
           <p
             aria-hidden="true"
-            className="select-none bg-gradient-to-r from-[#4F6BFF] via-[#FF2E7E] to-[#FF7A3D] bg-clip-text text-center font-pixel text-[clamp(3.5rem,17vw,16rem)] leading-[0.8] tracking-tight text-transparent"
+            className="select-none bg-gradient-to-r from-[#5B47D6] via-[#9B8AFB] to-[#C9BFFF] bg-clip-text text-center font-pixel text-[clamp(3.5rem,17vw,16rem)] leading-[0.8] tracking-tight text-transparent"
           >
             KwikReels
           </p>

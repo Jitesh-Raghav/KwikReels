@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/ui/section-heading"
 
 export function PricingSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section id="pricing" className="relative scroll-mt-20 overflow-hidden py-20 md:py-28">
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeading
           eyebrow="Pricing"

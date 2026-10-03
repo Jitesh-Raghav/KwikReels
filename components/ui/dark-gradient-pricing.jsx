@@ -55,15 +55,15 @@ export const PricingCard = ({
         className={cn(
           "relative flex h-full w-full flex-col overflow-hidden rounded-3xl p-7",
           isPopular
-            ? "border-foreground bg-foreground text-white shadow-[0_40px_100px_-40px_rgba(255,46,126,0.6)]"
+            ? "border-foreground bg-foreground text-white shadow-[0_40px_100px_-40px_rgba(110,90,240,0.65)]"
             : "border-border bg-card",
           className,
         )}
       >
         {isPopular && (
           <>
-            {/* glow and pixel dots in the hero ribbon colours */}
-            <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[140%] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(255,46,126,0.55),rgba(232,60,240,0.3)_45%,rgba(255,122,61,0)_100%)] blur-2xl" />
+            {/* lavender glow and halftone dots, echoing the hero ring */}
+            <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[140%] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(155,138,251,0.6),rgba(110,90,240,0.3)_45%,rgba(110,90,240,0)_100%)] blur-2xl" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(rgba(255,255,255,0.25)_1px,transparent_1.2px)] [background-size:10px_10px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
           </>
         )}
