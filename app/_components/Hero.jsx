@@ -57,21 +57,19 @@ function Hero() {
   return (
     <div>
       <HeroSection
-        title="AI Video Generator"
         subtitle={{
-          regular: "Create stunning ",
-          gradient: "Short Videos with KwikReels"
+          regular: "Your Story. Any Style.",
+          gradient: "Infinite Shorts."
         }}
-        description="AI generates scripts, images, and voiceovers in seconds. Create, edit, and publish engaging shorts with ease!"
+        description="AI writes the script, paints every scene and records the voiceover in seconds. Publish to YouTube, Instagram and TikTok. Fast. Effortless. Studio-grade shorts."
         bottomImage={{
           light: "/kwikreels.PNG",
           dark: "/kwikreels.PNG"
         }}
-        className="min-h-screen pt-20"
       >
-        <div className="flex gap-3 flex-col sm:flex-row items-center">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Authentication>
-            <ButtonCta label="Start creating for free" />
+            <ButtonCta label="Start creating for free" className="w-full sm:w-fit" />
           </Authentication>
           <Link href="/explore" className="w-full sm:w-auto">
             <Button

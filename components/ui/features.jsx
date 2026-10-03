@@ -41,7 +41,7 @@ export function Features() {
   ]
 
   return (
-    <section className="relative py-20 md:py-28">
+    <section id="features" className="relative scroll-mt-20 py-20 md:py-28">
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 lg:px-8">
         <SectionHeading
           eyebrow="Features"
